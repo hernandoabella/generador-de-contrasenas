@@ -69,39 +69,32 @@ function getRandomSymbol() {
 
 // calling a random function from the above 4 functions
 function generateRandomCharacter() {
-        if(uppercase.checked && lowercase.checked && numbers.checked && symbols.checked) {
-                const functions = {
-                        0: getRandomUppercase,
-                        1: getRandomLowercase,
-                        2: getRandomNumber,
-                        3: getRandomSymbol
-                }
-                return functions[Math.floor(Math.random() * 4)]();
+        const functions = [];
+    
+        if (uppercase.checked) {
+            functions.push(getRandomUppercase);
         }
-        if(uppercase.checked && lowercase.checked && numbers.checked && !symbols.checked) {
-                const functions = {
-                        0: getRandomUppercase,
-                        1: getRandomLowercase,
-                        2: getRandomNumber
-                }
-                return functions[Math.floor(Math.random() * 3)]();
+        if (lowercase.checked) {
+            functions.push(getRandomLowercase);
         }
-        if(uppercase.checked && lowercase.checked && !numbers.checked && symbols.checked) {
-                const functions = {
-                        0: getRandomUppercase,
-                        1: getRandomLowercase,
-                        2: getRandomSymbol
-                }
-                return functions[Math.floor(Math.random() * 3)]();
+        if (numbers.checked) {
+            functions.push(getRandomNumber);
         }
-        if(uppercase.checked && lowercase.checked && !numbers.checked && !symbols.checked) {
-                const functions = {
-                        0: getRandomUppercase,
-                        1: getRandomLowercase
-                }
-                return functions[Math.floor(Math.random() * 2)]();
+        if (symbols.checked) {
+            functions.push(getRandomSymbol);
         }
-}
+    
+        if (functions.length === 0) {
+            // Si ninguna casilla está marcada, mostrar mensaje de error
+            message.textContent = "Debe seleccionar al menos una opción";
+            message.classList.remove('message-success');
+            hideMessage();
+            return "";
+        }
+    
+        // Llamar a una función aleatoria del array de funciones
+        return functions[Math.floor(Math.random() * functions.length)]();
+    }
 
 function hideMessage() {
         setTimeout(function() {
