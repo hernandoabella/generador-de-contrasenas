@@ -8,52 +8,20 @@ const result = document.querySelector('#result'),
         generate = document.querySelector('#generate'),
         message = document.querySelector('.message');
 
-
-generate.addEventListener('click', function (e) {
-        e.preventDefault();
-        let passwordLength = length.value;
-        if (passwordLength > 4 && passwordLength <= 25) {
-                let password = '';
-                for (let i = 0; i < passwordLength; i++) {
-                        password += generateRandomCharacter();
-                }
-                result.value = password;
-                message.textContent = "";
-        }
-        else {
-                message.textContent = "Select a length between 5 and 25";
-                if (message.classList.contains('message-success')) {
-                        message.classList.remove('message-success');
-                }
-                result.value = "";
-                hideMessage();
-        }
-});
-
-copyBtn.addEventListener('click', function () {
-        const textarea = document.createElement('textarea');
-        const password = result.value;
-
-        if (!password) { return; }
-
-        textarea.value = password;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand('copy');
-        textarea.remove();
-        message.textContent = "Password copied to clipboard";
-        message.classList.add('message-success');
-        hideMessage();
-});
-
+function showMessage(text, isSuccess = true) {
+        message.textContent = text;
+        message.classList.toggle('message-success', isSuccess);
+        message.classList.toggle('message-error', !isSuccess);
+        setTimeout(() => {
+                message.textContent = '';
+        }, 2000);
+}
 
 function getRandomUppercase() {
-        // (65 to 90) ascii values for (A to Z)
         return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
 
 function getRandomLowercase() {
-        // (97 to 122) ascii values for (a to z)
         return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
 
@@ -66,8 +34,6 @@ function getRandomSymbol() {
         return str[Math.floor(Math.random() * str.length)];
 }
 
-
-// calling a random function from the above 4 functions
 function generateRandomCharacter() {
         const functions = [];
 
@@ -85,13 +51,42 @@ function generateRandomCharacter() {
         }
 
         if (functions.length === 0) {
-                // Si ninguna casilla está marcada, mostrar mensaje de error
-                message.textContent = "Debe seleccionar al menos una opción";
-                message.classList.remove('message-success');
-                hideMessage();
+                alert("Debe seleccionar al menos una opción", false);
                 return "";
         }
 
-        // Llamar a una función aleatoria del array de funciones
         return functions[Math.floor(Math.random() * functions.length)]();
 }
+
+generate.addEventListener('click', function (e) {
+        e.preventDefault();
+        let passwordLength = length.value;
+        if (passwordLength > 4 && passwordLength <= 25) {
+                let password = '';
+                for (let i = 0; i < passwordLength; i++) {
+                        password += generateRandomCharacter();
+                }
+                result.value = password;
+                alert('Contraseña generada exitosamente.');
+        } else {
+                alert('Seleccione una longitud entre 5 y 25.', false);
+                result.value = '';
+        }
+});
+
+copyBtn.addEventListener('click', function () {
+        const textarea = document.createElement('textarea');
+        const password = result.value;
+
+        if (!password) {
+                alert('No hay ninguna contraseña para copiar.', false);
+                return;
+        }
+
+        textarea.value = password;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        textarea.remove();
+        alert('Contraseña copiada al portapapeles.');
+});
