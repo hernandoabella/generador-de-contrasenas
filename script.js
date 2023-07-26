@@ -67,7 +67,7 @@ generate.addEventListener('click', function (e) {
                         password += generateRandomCharacter();
                 }
                 result.value = password;
-                alert('Contraseña generada exitosamente.');
+                console.log('Contraseña generada exitosamente.');
         } else {
                 alert('Seleccione una longitud entre 5 y 25.', false);
                 result.value = '';
