@@ -1,11 +1,10 @@
 body {
 	margin: 0;
-	font-family: sans-serif;
-	background: rgba(255, 255, 255, 0.8);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+	background-image: linear-gradient( 173.1deg,  rgba(226,66,249,0.94) 10.2%, rgba(79,147,249,1) 77.3% );
 }
 
 .container {
@@ -13,6 +12,7 @@ body {
 	padding: 1rem;
 	width: 350px;
 	background: #ffffff;
+	border-radius: 12px;
 }
 
 .result-row {
@@ -29,6 +29,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border-radius: 0px 12px 12px 0px;
 }
 
 .result-copy:hover {
@@ -42,7 +43,7 @@ body {
 .form-row {
 	display: flex;
 	justify-content: space-between;
-	margin: 10px 0;
+	margin: 20px 0;
 }
 
 .length-label {
@@ -64,14 +65,14 @@ body {
 
 button {
 	width: 100%;
-	padding: 8px;
+	padding: 10px;
 	font-size: 1.1rem;
 	letter-spacing: 1px;
 	background: linear-gradient(45deg, #009688, #3F51B5);
 	border: none;
 	color: white;
 	border-radius: 25px;
-	margin-top: 20px;
+	
 	outline: none;
 	cursor: pointer;
 }
