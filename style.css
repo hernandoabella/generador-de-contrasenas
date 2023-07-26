@@ -1,14 +1,9 @@
 body {
 	margin: 0;
 	font-family: sans-serif;
-	background: rgba(0,0,0,0.8);
+	background: rgba(0, 0, 0, 0.8);
 }
-main {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-}
+
 .box {
 	box-shadow: 1px 2px 4px #9e9e9e;
 	padding: 1rem;
@@ -16,16 +11,20 @@ main {
 	background: #f1f1f1;
 	border-radius: 3px;
 }
+
 form {
 	margin-bottom: 0;
 }
+
 .title {
 	text-align: center;
 	font-size: 1.75rem;
 }
+
 .result-row {
 	position: relative;
 }
+
 .result-copy {
 	position: absolute;
 	padding: 7px 10px;
@@ -37,25 +36,31 @@ form {
 	font-family: consolas;
 	border-radius: 25px;
 }
+
 .result-copy:hover {
 	background: #2a2a2b;
 }
+
 .result-copy:active {
 	box-shadow: 1px 2px 2px gray;
 }
+
 .form-row {
 	display: flex;
 	justify-content: space-between;
 	margin: 10px 0;
 }
+
 .length-label {
 	line-height: 2;
 }
+
 #length {
 	width: 80px;
 	text-align: left;
 	outline: none;
 }
+
 #result {
 	width: 331px;
 	height: 42px;
@@ -63,14 +68,17 @@ form {
 	padding-left: 1rem;
 	font-size: 16px;
 }
+
 input {
-    padding: 4px 8px;
-    font-size: 15px;
-    color: #555;
-    background-color: #dedede;;
-    border: 1px solid #ccc;
-    border-radius: 25px;
+	padding: 4px 8px;
+	font-size: 15px;
+	color: #555;
+	background-color: #dedede;
+	;
+	border: 1px solid #ccc;
+	border-radius: 25px;
 }
+
 button {
 	width: 100%;
 	padding: 8px;
@@ -83,12 +91,15 @@ button {
 	margin-top: 5px;
 	outline: none;
 }
+
 button:hover {
 	background: linear-gradient(220deg, #009688, #3F51B5);
 }
+
 button:active {
 	box-shadow: 1px 2px 2px gray;
 }
+
 .message {
 	color: #e63333;
 	margin-top: 5px;
@@ -97,6 +108,7 @@ button:active {
 	height: 16px;
 	text-align: center;
 }
+
 .message-success {
 	color: #0c8990;
 }
@@ -113,13 +125,16 @@ footer {
 	color: #808080;
 	font-size: 0.95rem;
 }
+
 footer p {
 	letter-spacing: 1px;
 }
+
 footer a {
 	color: #0c8990;
 	text-decoration: none;
 }
+
 footer a:hover {
 	color: #3a56b1;
 }
@@ -131,9 +146,11 @@ footer a:hover {
 	footer {
 		font-size: 0.8rem;
 	}
+
 	.box {
 		width: 320px;
 	}
+
 	#result {
 		width: 303px;
 	}
