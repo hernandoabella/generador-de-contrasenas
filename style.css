@@ -43,6 +43,7 @@ body {
 	display: flex;
 	justify-content: space-between;
 	margin: 20px 0;
+	font-weight: bold;
 }
 
 .length-label {
