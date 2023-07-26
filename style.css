@@ -53,6 +53,7 @@ body {
 #length {
 	text-align: center;
 	outline: none;
+	border-radius: 5px;
 }
 
 #result {
