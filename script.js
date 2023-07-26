@@ -9,12 +9,12 @@ const result = document.querySelector('#result'),
         message = document.querySelector('.message');
 
 
-generate.addEventListener('click', function(e) {
+generate.addEventListener('click', function (e) {
         e.preventDefault();
         let passwordLength = length.value;
-        if(passwordLength > 4 && passwordLength <= 25) {
+        if (passwordLength > 4 && passwordLength <= 25) {
                 let password = '';
-                for(let i = 0; i < passwordLength; i++) {
+                for (let i = 0; i < passwordLength; i++) {
                         password += generateRandomCharacter();
                 }
                 result.value = password;
@@ -22,7 +22,7 @@ generate.addEventListener('click', function(e) {
         }
         else {
                 message.textContent = "Select a length between 5 and 25";
-                if(message.classList.contains('message-success')) {
+                if (message.classList.contains('message-success')) {
                         message.classList.remove('message-success');
                 }
                 result.value = "";
@@ -30,11 +30,11 @@ generate.addEventListener('click', function(e) {
         }
 });
 
-copyBtn.addEventListener('click', function() {
+copyBtn.addEventListener('click', function () {
         const textarea = document.createElement('textarea');
         const password = result.value;
 
-        if(!password) { return; }
+        if (!password) { return; }
 
         textarea.value = password;
         document.body.appendChild(textarea);
@@ -70,35 +70,28 @@ function getRandomSymbol() {
 // calling a random function from the above 4 functions
 function generateRandomCharacter() {
         const functions = [];
-    
+
         if (uppercase.checked) {
-            functions.push(getRandomUppercase);
+                functions.push(getRandomUppercase);
         }
         if (lowercase.checked) {
-            functions.push(getRandomLowercase);
+                functions.push(getRandomLowercase);
         }
         if (numbers.checked) {
-            functions.push(getRandomNumber);
+                functions.push(getRandomNumber);
         }
         if (symbols.checked) {
-            functions.push(getRandomSymbol);
+                functions.push(getRandomSymbol);
         }
-    
+
         if (functions.length === 0) {
-            // Si ninguna casilla está marcada, mostrar mensaje de error
-            message.textContent = "Debe seleccionar al menos una opción";
-            message.classList.remove('message-success');
-            hideMessage();
-            return "";
+                // Si ninguna casilla está marcada, mostrar mensaje de error
+                message.textContent = "Debe seleccionar al menos una opción";
+                message.classList.remove('message-success');
+                hideMessage();
+                return "";
         }
-    
+
         // Llamar a una función aleatoria del array de funciones
         return functions[Math.floor(Math.random() * functions.length)]();
-    }
-
-function hideMessage() {
-        setTimeout(function() {
-                message.textContent = "";
-        }, 3000)
 }
-
