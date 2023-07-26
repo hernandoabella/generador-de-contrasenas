@@ -16,19 +16,19 @@ body {
 }
 
 .result-row {
-	position: relative;
+	display: flex;
 }
 
 .result-copy {
-	position: absolute;
-	padding: 7px 10px;
 	background: #464646;
-	color: white;
-	top: 9px;
-	right: 3px;
+	color: rgb(255, 255, 255);
 	cursor: pointer;
 	font-family: consolas;
-	border-radius: 25px;
+	width: 50px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .result-copy:hover {
