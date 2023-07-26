@@ -2,6 +2,10 @@ body {
 	margin: 0;
 	font-family: sans-serif;
 	background: rgba(0, 0, 0, 0.8);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
 }
 
 .box {
@@ -10,15 +14,6 @@ body {
 	width: 350px;
 	background: #f1f1f1;
 	border-radius: 3px;
-}
-
-form {
-	margin-bottom: 0;
-}
-
-.title {
-	text-align: center;
-	font-size: 1.75rem;
 }
 
 .result-row {
@@ -113,9 +108,6 @@ button:active {
 	color: #0c8990;
 }
 
-/*
-	FOOTER
----------------*/
 footer {
 	position: absolute;
 	bottom: 0;
@@ -137,21 +129,4 @@ footer a {
 
 footer a:hover {
 	color: #3a56b1;
-}
-
-/*
-	Mobile View
------------------*/
-@media(max-width: 576px) {
-	footer {
-		font-size: 0.8rem;
-	}
-
-	.box {
-		width: 320px;
-	}
-
-	#result {
-		width: 303px;
-	}
 }
