@@ -68,17 +68,17 @@ button {
 	padding: 10px;
 	font-size: 1.1rem;
 	letter-spacing: 1px;
-	background: linear-gradient(45deg, #009688, #3F51B5);
+	background: rgba(226,66,249,0.94);
 	border: none;
 	color: white;
 	border-radius: 25px;
-	
+	transition: .2s;
 	outline: none;
 	cursor: pointer;
 }
 
 button:hover {
-	background: linear-gradient(220deg, #009688, #3F51B5);
+	background: rgba(79,147,249,1);
 }
 
 button:active {
