@@ -1,1 +1,1 @@
-# generador-de-contrasenas
+# password-generator
